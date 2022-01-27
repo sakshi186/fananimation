@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fananimation</title>
+            <style>
+               .buttongroup > button{
+                 width:50px;
+                 height:50px;
+                 background:skyblue;
+                 color:slategray;
+                 box-shadow:2px 2px 2px 2px;
+                 border:none;
+               }
+               .fanbox{
+                   background-image:url("img/fan-blades-png.png");
+                   width:300px;
+                   height:300px;
+                   background-size:cover;
+                   margin:100px auto;
+                   animation-name:fananimation;
+                   animation-duration:10s;
+                   animation-timing-function: linear;
+                   animation-iteration-count: infinite;
+                   animation-play-state: paused;
+               }
+               @keyframes fananimation {
+                   0%{
+                        transform: rotateZ(0deg);
+                   }
+                   100%{
+                        transform: rotateZ(359deg);
+                   }
+               }
+            </style>
+            <script>
+              function x(elem){
+                  return document.querySelector(elem);
+              }
+              //function defination
+              function startFan(speed){
+                   if(speed==0){
+                       x(".fanbox").style.animationPlayState="paused";
+                  }
+                   else if(speed==1){
+                       x(".fanbox").style.animationDuration="1.5s";
+                       x("#fanbox1").style.animationPlayState="running";
+                  }
+                  else if(speed==2){
+                   x('[data-sak="saksh"]').style.animationDuration="0.8s";
+                   x('[data-sak="saksh"]').style.animationPlayState="running";
+                  }
+                  else{
+                    document.getElementById('fanbox1').style.animationDuration='0.1s';
+                    document.getElementById('fanbox1').style.animationPlayState="running";
+                  }
+              }
+            </script>
+        </head>
+        <body>
+            <div class="fanbox"  id="fanbox1" data-sak="saksh">
+
+            </div>
+            <div class="buttongroup" style="text-align: center; ">
+                <button onclick="startFan(0)">Stop</button>
+                <button onclick="startFan(1)">1</button>
+                <button onclick="startFan(2)">2</button>
+                <button onclick="startFan(3)">3</button>
+            </div>
+            <script>
+
+            </script>
+        </body>
+</html>
